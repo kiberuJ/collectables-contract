@@ -1,0 +1,12 @@
+{
+  "name": "collectables-contract",
+  "version": "1.0.0",
+  "description": "A smart contract for collectibles items sale",
+  "main": "index.ts",
+  "repository": "git@github.com:kiberuJ/collectables-contract.git",
+  "author": "kiberuJ <wanjiku.janekiberu@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "near-sdk-as": "^3.2.3"
+  }
+}
