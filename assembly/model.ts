@@ -24,7 +24,7 @@ export class Coin {
         return coin;
     }
     public saleProcessing(orderedCoins: u32): void {
-        this.sold = this.sold + 1;
+        this.sold = this.sold + orderedCoins;
         this.quantity = this.quantity - orderedCoins;
     }
 }
