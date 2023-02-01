@@ -28,8 +28,6 @@ export function buyCoin(coinId: string, orderedCoins: u32): void {
         throw new Error("coin not found");
     }
     assert(orderedCoins <= coin.quantity, "Ordered amount can't be fulfilled");
-    const amountOrdered = u128.mul(coin.price, u128.from(orderedCoins));
-    assert(amountOrdered.toString() == context.attachedDeposit.toString(), "Attached amount doesn't match total cost of order");
     ContractPromiseBatch.create(coin.owner).transfer(context.attachedDeposit);
     coin.saleProcessing(orderedCoins);
     listedCoins.set(coin.id, coin);
