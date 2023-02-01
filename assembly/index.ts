@@ -46,6 +46,7 @@ export function deleteCoin(coinId: string): void {
 }
 
 export function clearListing(): void {
+    assert(context.predecessor.toString() == context.contractName.toString(), "Only admin can delete all listings");
     listedCoins.clear();
 }
 
