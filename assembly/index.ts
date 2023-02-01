@@ -27,6 +27,7 @@ export function buyCoin(coinId: string, orderedCoins: u32): void {
     if (coin == null) {
         throw new Error("coin not found");
     }
+    assert(orderedCoins <= coin.quantity, "Ordered amount can't be fulfilled");
     ContractPromiseBatch.create(coin.owner).transfer(context.attachedDeposit);
     coin.saleProcessing(orderedCoins);
     listedCoins.set(coin.id, coin);
