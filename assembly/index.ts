@@ -7,6 +7,10 @@ export function setCoin(coin: Coin): void {
     if (storedCoin !== null) {
         throw new Error(`a coin with ${coin.id} already exists`);
     }
+    assert(coin.description.length > 0, "Empty description");
+    assert(coin.name.length > 0, "Empty name");
+    assert(coin.image.length > 0, "Empty image");
+    assert(coin.location.length > 0, "Empty location");
     listedCoins.set(coin.id, Coin.fromPayload(coin));
 }
 
