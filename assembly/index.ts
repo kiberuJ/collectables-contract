@@ -40,6 +40,7 @@ export function deleteCoin(coinId: string): void {
     if (coin == null) {
         throw new Error("Entry not found!");
     } else {
+        assert(coin.owner.toString() == context.sender, "Unauthorized sender");
         listedCoins.delete(coinId);
     }
 }
